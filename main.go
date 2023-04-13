@@ -3,6 +3,8 @@ package main
 import (
 	"awesomeProject/controller"
 	"awesomeProject/service"
+	"os"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -35,7 +37,7 @@ func main() {
 		}
 	}
 
-	err := router.Run(":8080")
+	err := router.Run("0.0.0.0:" + os.Getenv("PORT"))
 	if err != nil {
 		return
 	} // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
